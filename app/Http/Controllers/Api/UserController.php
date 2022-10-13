@@ -52,7 +52,7 @@ class UserController extends Controller
             'id_materia' => '',
             'username' => 'required',
             'email' => 'required|email|unique:users',
-            'password' => 'required|confirmed',
+            'password' => 'required',
         ]);
         $user = new User();
         $user->ci = $request->ci;
@@ -66,9 +66,9 @@ class UserController extends Controller
         $user->email = $request->email;
         $user->password = Hash::make($request->password);
 
-
+        // dd($request);
         $user-> save();
-        dd($request);
+
         return redirect()->route('admin.usuarios.index');
     }
 
@@ -93,9 +93,9 @@ class UserController extends Controller
      * @param  \App\Models\Inventario  $inventario
      * @return \Illuminate\Http\Response
      */
-    public function edit(Inventario $inventario)
+    public function edit(User $usuario)
     {
-        return view('admin.usuarios.edit', compact('inventario'));
+        return view('admin.usuarios.edit', compact('usuario'));
     }
 
 
@@ -106,10 +106,21 @@ class UserController extends Controller
      * @param  \App\Models\Inventario  $inventario
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdateInventarioRequest $request, Inventario $inventario)
+    public function update(Request $request)
     {
-        $inventario->update($request->all());
-        return redirect()->route('admin.usuarios.index')->with('info', 'La inventario se actualizo con exito');
+        $user = User::findOrFail($request-> id);
+        $user->ci = $request->ci;
+        $user->name = $request->name;
+        $user->lastname = $request->lastname;
+        $user->f_n = $request->f_n;
+        $user->id_rol = $request->id_rol;
+        $user->id_carrera = $request->id_carrera;
+        $user->id_materia = $request->id_materia;
+        $user->username = $request->username;
+        $user->email = $request->email;
+        $user->password = Hash::make($request->password);
+        $user-> save();
+        return redirect()->route('admin.usuarios.index');
     }
 
 
@@ -119,9 +130,9 @@ class UserController extends Controller
      * @param  \App\Models\Inventario  $inventario
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Inventario $inventario)
+    public function destroy(Request $request)
     {
-        $inventario->delete();
+        $user = User::destroy($request->id);
         return redirect()->route('admin.usuarios.index');
     }
 

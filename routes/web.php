@@ -17,10 +17,11 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-// Auth::routes();
-
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/home', [App\Http\Controllers\Api\UserController::class, 'index'])->name('admin.usuarios.index');
+// Route::resource('/api/usuarios', App\Http\Controllers\Api\UserController::class)->names('admin.usuarios');
+
+// Auth::routes();
+
+// Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

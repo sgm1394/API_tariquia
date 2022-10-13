@@ -20,14 +20,17 @@ class User extends Authenticatable
     protected $table = "users";
 
     protected $fillable = [
+        'ci',
         'name',
         'lastname',
+        'f_n',
+        'genero',
         'id_rol',
         'id_carrera',
         'id_materia',
         'username',
         'email',
-        'password',
+        'password'
     ];
 
     public $timestamps = false;

@@ -5,15 +5,15 @@
     </div>
     <div class="form-group">
         <label for="rol">Rol</label>
-        <input type="text" class="form-control" id="rol" name="rol" value="{{ old('rol') }}" required autocomplete="rol">
+        <input type="text" class="form-control" id="id_rol" name="id_rol" value="{{ old('id_rol') }}" required autocomplete="rol">
     </div>
     <div class="form-group">
         <label for="carrera">Carrera</label>
-        <input type="text" class="form-control" id="carrera" name="carrera" value="{{ old('carrera') }}" required autocomplete="carrera">
+        <input type="text" class="form-control" id="id_carrera" name="id_carrera" value="{{ old('id_carrera') }}" required autocomplete="carrera">
     </div>
     <div class="form-group">
         <label for="materia">Materia</label>
-        <input type="text" class="form-control" id="materia" name="materia" value="{{ old('materia') }}" required autocomplete="materia">
+        <input type="text" class="form-control" id="id_materia" name="id_materia" value="{{ old('id_materia') }}" required autocomplete="materia">
     </div>
     <div class="form-group">
         <label for="email">Correo</label>
@@ -56,8 +56,8 @@
             <input type="text" class="form-control" id="name" name="name" placeholder="Ingrese su nombre(s)" value="{{ old('name') }}" required>
         </div>
         <div class="form-group">
-            <label for="apellidos">Apellido(s)</label>
-            <input type="text" class="form-control" id="apellidos" name="apellidos" placeholder="Ingrese su apellido(s)" value="{{ old('apellidos') }}" required>
+            <label for="lastname">Apellido(s)</label>
+            <input type="text" class="form-control" id="lastname" name="lastname" placeholder="Ingrese su apellido(s)" value="{{ old('lastname') }}" required>
         </div>
         <div class="form-group">
             <label for="f_n">Fecha de Nacimiento</label>
